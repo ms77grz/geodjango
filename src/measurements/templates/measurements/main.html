@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} calculate distance {% endblock %}
+
+{% block content %}
+
+{{ map|safe }}
+
+<ul class="list-group">
+    {% for item in distance %}
+    <li class="list-group-item">{{item}}</li>
+    {% endfor %}
+</ul>
+
+<form action="" method="POST" autocomplete="off">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-primary" type="submit">confirm</button>
+</form>
+
+{% endblock %}
